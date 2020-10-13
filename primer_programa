@@ -1,0 +1,20 @@
+import RPi.GPIO as GPIO
+import time
+# primero se inician las librerias
+
+Pin = 8
+# se definen los pines a utilizar
+
+# setup
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(Pin, GPIO.OUT)
+GPIO.output(Pin, GPIO.HIGH)
+
+# se define un ciclo for de 10 interaciones de encendido y apagado del led, con un sleep de 0.5 segundos.
+for i in range (0,10):
+    GPIO.output(Pin, GPIO.HIGH)
+    time.sleep(0.5)
+    GPIO.output(Pin, GPIO.LOW)
+    time.sleep(0.5)
+
+GPIO.cleanup()
